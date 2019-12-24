@@ -191,9 +191,18 @@ class build_base():
             i+=1
         return self.speakers, self.words_michael, self.words_panelists
 
+    def dict_to_file(out_filename, in_dict, author_name):
+        with open(out_filename, 'w') as f:
+            for key in in_dict.keys():
+                f.write("%s,%s,%s\n" %(author_name, key, in_dict[key]))
+        return True
 
 base_dict = build_base()
 (speakers, words_michael, words_panelists ) = base_dict.base_dict()
+
+build_base.dict_to_file(r"E:\\Program Files\\Python35-32\\words_panelists.dat", words_panelists, "panelists")
+# build_base.dict_to_file(out_filename=r"E:\\Program Files\\Python35-32\\words_michael.dat", in_dict=words_michael)
+
 print("speakerss", speakers)
 print()
 print("panelists")
