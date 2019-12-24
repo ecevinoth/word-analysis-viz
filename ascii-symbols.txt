@@ -1,0 +1,33 @@
+ 	U+0020 (alt-032)	SPACE
+!  	U+0021 (alt-033)	EXCLAMATION MARK = factorial = bang
+"  	U+0022 (alt-034)	QUOTATION MARK
+#  	U+0023 (alt-035)	NUMBER SIGN = pound sign, hash, crosshatch, octothorpe
+$  	U+0024 (alt-036)	DOLLAR SIGN = milreis, escudo
+%  	U+0025 (alt-037)	PERCENT SIGN
+&  	U+0026 (alt-038)	AMPERSAND
+'  	U+0027 (alt-039)	APOSTROPHE = apostrophe-quote = APL quote
+(  	U+0028 (alt-040)	LEFT PARENTHESIS = opening parenthesis
+)  	U+0029 (alt-041)	RIGHT PARENTHESIS = closing parenthesis
+*  	U+002A (alt-042)	ASTERISK = star (on phone keypads)
++  	U+002B (alt-043)	PLUS SIGN
+,  	U+002C (alt-044)	COMMA = decimal separator
+-  	U+002D (alt-045)	HYPHEN-MINUS = hyphen or minus sign
+.  	U+002E (alt-046)	FULL STOP (period, dot, decimal point)
+/  	U+002F (alt-047)	SOLIDUS (slash, virgule)
+:  	U+003A (alt-058)	COLON
+;  	U+003B (alt-059)	SEMICOLON
+<  	U+003C (alt-060)	LESS-THAN SIGN
+=  	U+003D (alt-061)	EQUALS SIGN
+>  	U+003E (alt-062)	GREATER-THAN SIGN
+?  	U+003F (alt-063)	QUESTION MARK
+@  	U+0040 (alt-064)	COMMERCIAL AT (at sign)
+[  	U+005B (alt-091)	LEFT SQUARE BRACKET = opening square bracket
+\  	U+005C (alt-092)	REVERSE SOLIDUS = backslash
+]  	U+005D (alt-093)	RIGHT SQUARE BRACKET = closing square bracket
+^  	U+005E (alt-094)	CIRCUMFLEX ACCENT
+_  	U+005F (alt-095)	LOW LINE (spacing underscore)
+`  	U+0060 (alt-096)	GRAVE ACCENT
+{  	U+007B (alt-0123)	LEFT CURLY BRACKET = opening curly bracket = left brace
+|  	U+007C (alt-0124)	VERTICAL LINE = vertical bar
+}  	U+007D (alt-0125)	RIGHT CURLY BRACKET = closing curly bracket = right brace
+~  	U+007E (alt-0126)	TILDE
