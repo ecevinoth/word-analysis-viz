@@ -164,49 +164,56 @@ class build_base():
         self.words_michael = {}
         self.words_panelists = {}
 
-    def base_dict(self, filename = r"E:\\Program Files\\Python35-32\\word_count.dat"):
-
+    def base_dict(self, filename):
         # remove empty lines
-        lines = [line.rstrip('\n') for line in open(filename) if len(line.rstrip('\n')) != 0]
-
+        lines = [(line.strip(' ')).rstrip('\n') for line in open(filename) if len( (line.strip(' ')).rstrip('\n')) != 0]
         i = 0
+
         for line in lines:
-            author_name = " ".join((line.split(":")[1]).split()[1:])
+            author_name = " ".join((line.split(":")[2]).split()[1:])
             if author_name not in self.speakers.values() and len(author_name) != 0:
-                self.speakers[i]=author_name
+                self.speakers[i] = author_name
 
             for word in str(line.split(":")[2:]).split():
-                # if word not in english_common_words and word not in english_stop_words_hand_picked:
                 if word not in self.english_common_words and word not in self.english_stop_words and word not in self.english_stop_words_hand_picked:
                     if author_name == "Michael Kennedy":
                         if word in self.words_michael.keys():
-                            self.words_michael[word]+=1
+                            self.words_michael[word] += 1
                         else:
-                            self.words_michael[word]=1
+                            self.words_michael[word] = 1
                     if author_name == "Panelists":
                         if word in self.words_panelists.keys():
-                            self.words_panelists[word]+=1
+                            self.words_panelists[word] += 1
                         else:
-                            self.words_panelists[word]=1
-            i+=1
+                            self.words_panelists[word] = 1
+            i += 1
         return self.speakers, self.words_michael, self.words_panelists
 
-    def dict_to_file(out_filename, in_dict, author_name):
-        with open(out_filename, 'w') as f:
-            for key in in_dict.keys():
-                f.write("%s,%s,%s\n" %(author_name, key, in_dict[key]))
-        return True
+
+def dict_to_file(out_filename, in_dict, author_name):
+    sorted_list = sorted(words_panelists.items(), key=lambda x: x[1], reverse=True)
+    with open(out_filename, 'a+') as f:
+        for key, value in sorted_list:
+            f.write("%s,%s,%s\n" %(author_name, key, value))
+    return True
+
+proj_dir = r"E:\\Program Files\\Python35-32\\word-analysis-viz"
+in_file_name = "242.txt"
+transcript_file = proj_dir + r"\\transcript\\" + in_file_name
+words_csv = proj_dir + r"\\output\\" + in_file_name + ".csv"
 
 base_dict = build_base()
-(speakers, words_michael, words_panelists ) = base_dict.base_dict()
+(speakers, words_michael, words_panelists) = base_dict.base_dict(transcript_file)
 
-build_base.dict_to_file(r"E:\\Program Files\\Python35-32\\words_panelists.dat", words_panelists, "panelists")
-# build_base.dict_to_file(out_filename=r"E:\\Program Files\\Python35-32\\words_michael.dat", in_dict=words_michael)
+# remove if words list file exist
+os.remove(words_csv) if os.path.exists(words_csv) else print(words_csv + " file not exist")
+dict_to_file(out_filename=words_csv, in_dict=words_michael, author_name="michael")
+dict_to_file(out_filename=words_csv, in_dict=sorted(words_panelists.items(), key=lambda x: x[1], reverse=True), author_name="panelists")
 
 print("speakerss", speakers)
 print()
 print("panelists")
-print(sorted(words_panelists.items(), key=lambda x:x[1], reverse=True))
+print(sorted(words_panelists.items(), key=lambda x: x[1], reverse=True))
 print()
 print("Michael Kennedy")
-print(sorted(words_michael.items(), key=lambda x:x[1], reverse=True))
+print(sorted(words_michael.items(), key=lambda x: x[1], reverse=True))
